@@ -1,0 +1,41 @@
+# --- Python / Virtual Environment ---
+venv/
+env/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Django Specific ---
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static_root/
+
+# --- Environment Variables ---
+.env
+.env.local
+.env.*
+
+# --- Docker ---
+.docker/
+# (Optional) Ignore data folders if you use local volumes for Postgres later
+pgdata/
+
+# --- Operating System ---
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# --- IDEs / Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
