@@ -6,12 +6,20 @@ from django.views.generic.edit import FormMixin
 from .models import Post, Topic, Comment
 from .forms import CommentForm
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import Q
 
 class PostListView(ListView):
   model = Post
   template_name = 'forum/post_list.html'
   context_object_name = 'posts'
-  paginate_by = 10
+
+  def get_queryset(self):
+    query = self.request.GET.get('q')
+    if query:
+      return Post.objects.filter(
+          Q(title__icontains=query) | Q(content__icontains=query)
+      )
+    return Post.objects.all().order_by('-created_at')
 
 class PostDetailView(FormMixin, DetailView):
   model = Post
