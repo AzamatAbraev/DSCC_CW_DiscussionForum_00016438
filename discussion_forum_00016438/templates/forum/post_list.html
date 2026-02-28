@@ -3,16 +3,31 @@
   <div class="col-md-8">
     <h2>Recent Discussions</h2>
     <form action="{% url 'post_list' %}" method="get" class="d-flex mb-4">
-      <input
-        name="q"
-        class="form-control me-2"
-        type="search"
-        placeholder="Search posts..."
-        aria-label="Search"
-      />
-      <button class="btn btn-outline-primary" type="submit">Search</button>
+      <div class="input-group">
+        <input
+          name="q"
+          value="{{ search_query }}"
+          class="form-control"
+          type="search"
+          placeholder="Search posts..."
+          aria-label="Search"
+        />
+
+        <button class="btn btn-primary" type="submit">Search</button>
+
+        {% if search_query %}
+        <a href="{% url 'post_list' %}" class="btn btn-outline-secondary"
+          >Clear</a
+        >
+        {% endif %}
+      </div>
     </form>
-    {% for post in posts %}
+
+    {% if search_query %}
+    <p class="text-muted">
+      Showing results for: <strong>{{ search_query }}</strong>
+    </p>
+    {% endif %} {% for post in posts %}
     <div class="card mb-3 shadow-sm">
       <div class="card-body">
         <span class="badge bg-secondary mb-2">{{ post.topic.name }}</span>

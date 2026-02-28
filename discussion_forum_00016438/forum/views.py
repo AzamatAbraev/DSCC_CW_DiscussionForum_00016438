@@ -17,9 +17,14 @@ class PostListView(ListView):
     query = self.request.GET.get('q')
     if query:
       return Post.objects.filter(
-          Q(title__icontains=query) | Q(content__icontains=query)
+          Q(title__icontains=query) | Q(body__icontains=query)
       )
     return Post.objects.all().order_by('-created_at')
+  
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['search_query'] = self.request.GET.get('q', '')
+    return context
 
 class PostDetailView(FormMixin, DetailView):
   model = Post
