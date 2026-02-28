@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <h2>Recent Discussions</h2>
+    {% for post in posts %}
+    <div class="card mb-3 shadow-sm">
+      <div class="card-body">
+        <span class="badge bg-secondary mb-2">{{ post.topic.name }}</span>
+        <h3 class="card-title h5">
+          <a
+            href="{% url 'post_detail' post.slug %}"
+            class="text-decoration-none text-dark"
+            >{{ post.title }}</a
+          >
+        </h3>
+        <p class="text-muted small">
+          By {{ post.author }} | {{ post.created_at|date:"M d, Y" }}
+        </p>
+        <div>
+          {% for tag in post.tags.all %}
+          <span class="badge rounded-pill bg-light text-dark border"
+            >#{{ tag.name }}</span
+          >
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p>No posts yet. Be the first to start a conversation!</p>
+    {% endfor %} {% if is_paginated %}
+    <nav>
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+            >Previous</a
+          >
+        </li>
+        {% endif %}
+        <li class="page-item active">
+          <span class="page-link">{{ page_obj.number }}</span>
+        </li>
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}"
+            >Next</a
+          >
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
