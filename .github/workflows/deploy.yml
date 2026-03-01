@@ -53,7 +53,7 @@ jobs:
           POSTGRES_DB: test_db
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          DJANGO_SECRET_KEY: test-secret-key-for-ci
+          SECRET_KEY: test-secret-key-for-ci
           DJANGO_DEBUG: "True"
         run: |
           cd discussion_forum_00016438
