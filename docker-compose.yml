@@ -1,0 +1,50 @@
+# version: "3.8"
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: forum_postgres_00016438
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: forum_db_00016438
+      POSTGRES_USER: forum_admin_00016438
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test:
+        ["CMD-SHELL", "pg_isready -U forum_admin_00016438 -d forum_db_00016438"]
+      # test: ["CMD-SHELL", "pg_isready -U bloguser -d blog_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: forum_redis_00016438
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  web:
+    build: .
+    container_name: forum_django_00016438
+    command: python discussion_forum_00016438/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+volumes:
+  postgres_data:
+  redis_data:
