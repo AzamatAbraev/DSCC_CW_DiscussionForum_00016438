@@ -40,4 +40,5 @@ COPY . .
 RUN python discussion_forum_00016438/manage.py collectstatic --noinput
 
 EXPOSE 8000
-CMD ["python", "discussion_forum_00016438/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "discussion_forum_00016438.config.wsgi:application"]
+# CMD ["python", "discussion_forum_00016438/manage.py", "runserver", "0.0.0.0:8000"]
