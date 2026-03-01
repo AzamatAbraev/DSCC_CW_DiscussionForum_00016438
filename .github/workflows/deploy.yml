@@ -45,7 +45,7 @@ jobs:
 
       - name: Run flake8 linting
         run: |
-          flake8 app/ --max-line-length=120 --exclude=migrations
+          flake8 discussion_forum_00016438/ --max-line-length=120 --exclude=migrations
 
       - name: Run Django tests
         env:
@@ -53,7 +53,7 @@ jobs:
           DJANGO_SECRET_KEY: test-secret-key-for-ci
           DJANGO_DEBUG: "True"
         run: |
-          cd app
+          cd discussion_forum_00016438
           python manage.py test
 
   build:
