@@ -21,12 +21,15 @@ class PostAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ("author", "post", "created_at", "body_snippet")
     list_filter = ("created_at", "author")
-  
+
     def body_snippet(self, obj):
         return obj.body[:50] + "..." if len(obj.body) > 50 else obj.body
-    
+  
     body_snippet.short_description = "Comment Preview"
 
     admin.site.register(Tag)
+
+
+
     
 
