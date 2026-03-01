@@ -13,9 +13,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ("title", "topic", "author", "created_at")
     search_fields = ("title", "body")
     list_filter = ("created_at", "topic", "tags")
-  
     prepopulated_fields = {"slug": ("title",)}
-  
     filter_horizontal = ("tags",)
 
 
@@ -26,6 +24,9 @@ class CommentAdmin(admin.ModelAdmin):
   
     def body_snippet(self, obj):
         return obj.body[:50] + "..." if len(obj.body) > 50 else obj.body
+    
     body_snippet.short_description = "Comment Preview"
 
     admin.site.register(Tag)
+    
+
