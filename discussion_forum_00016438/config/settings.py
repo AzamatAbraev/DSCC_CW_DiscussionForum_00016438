@@ -49,6 +49,11 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 # X_FRAME_OPTIONS = 'DENY'
 
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://dscc-cw-00016438.uaenorth.cloudapp.azure.com',
+    'https://www.dscc-cw-00016438.uaenorth.cloudapp.azure.com',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
