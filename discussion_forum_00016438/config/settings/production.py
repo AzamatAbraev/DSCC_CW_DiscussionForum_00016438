@@ -9,6 +9,10 @@ DEBUG = False
 # Allow only specific hosts
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://dscc-cw-00016438.uaenorth.cloudapp.azure.com',
+    'https://www.dscc-cw-00016438.uaenorth.cloudapp.azure.com',
+]
 
 # HTTPS settings
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
