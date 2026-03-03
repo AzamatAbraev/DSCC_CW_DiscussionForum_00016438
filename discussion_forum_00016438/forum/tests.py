@@ -21,7 +21,7 @@ class TestForum:
     def test_unauthenticated_post_create_redirect(self, client):
         url = reverse('post_create')
         response = client.get(url)
-        assert response.status_code == 302  # Redirects to login
+        assert response.status_code == 302
 
     def test_upvote_logic(self, client):
         user = User.objects.create_user(username='voter', password='password')

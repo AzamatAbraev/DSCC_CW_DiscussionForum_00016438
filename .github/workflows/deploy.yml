@@ -62,7 +62,7 @@ jobs:
 
   build:
     name: Build & Push Docker Image
-    needs: test # Only runs if tests pass
+    needs: test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
@@ -87,7 +87,7 @@ jobs:
 
   deploy:
     name: Deploy to Azure VM
-    needs: build # Only runs if build succeeds
+    needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
