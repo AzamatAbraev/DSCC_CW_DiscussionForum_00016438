@@ -29,12 +29,6 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-fallback-key-f
 DEBUG = False
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
-# ALLOWED_HOSTS = [
-#     'dscc-cw-00016438.uaenorth.cloudapp.azure.com',
-#     '20.203.125.232',
-#     'localhost',
-#     '127.0.0.1'
-# ]
 
 CSRF_TRUSTED_ORIGINS = ['https://dscc-cw-00016438.uaenorth.cloudapp.azure.com']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
