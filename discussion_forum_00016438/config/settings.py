@@ -26,7 +26,7 @@ load_dotenv()
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-fallback-key-for-dev-only")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 #ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 #ALLOWED_HOSTS = ['https://dscc-cw-00016438.uaenorth.cloudapp.azure.com']
