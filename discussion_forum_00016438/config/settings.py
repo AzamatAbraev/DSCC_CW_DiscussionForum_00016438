@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-fallback-key-f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 # ALLOWED_HOSTS = [
 #     'dscc-cw-00016438.uaenorth.cloudapp.azure.com',
 #     '20.203.125.232',
