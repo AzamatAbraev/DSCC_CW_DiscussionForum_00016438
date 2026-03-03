@@ -26,8 +26,11 @@
 
     <div class="mt-3 pt-3">
       <form action="{% url 'upvote_post' post.slug %}" method="POST">
-        {% csrf_token %} {% if user.is_authenticated %} {% if user in
-        post.upvotes.all %}
+        {% csrf_token %} {% if not user.is_authenticated %}
+        <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-sm">
+          Login to Upvote ({{ post.total_upvotes }})
+        </a>
+        {% elif user in post.upvotes.all %}
         <button type="submit" class="btn btn-primary btn-sm">
           Upvoted ({{ post.total_upvotes }})
         </button>
@@ -35,10 +38,6 @@
         <button type="submit" class="btn btn-outline-primary btn-sm">
           Upvote ({{ post.total_upvotes }})
         </button>
-        {% endif %} {% else %}
-        <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-sm">
-          Login to Upvote ({{ post.total_upvotes }})
-        </a>
         {% endif %}
       </form>
     </div>
