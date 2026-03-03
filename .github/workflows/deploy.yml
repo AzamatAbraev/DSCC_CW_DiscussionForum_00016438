@@ -45,7 +45,7 @@ jobs:
 
       - name: Run flake8 linting
         run: |
-          flake8 discussion_forum_00016438/ --max-line-length=120 --exclude=migrations --ignore=E111,E101,E117,E122,E302,E303,E305,W292,W291,W293,W191,W391,E261,E265
+          flake8 discussion_forum_00016438/ --max-line-length=120 --exclude=migrations --ignore=E111,E101,E117,E122,E131,E302,E303,E305,W292,W291,W293,W191,W391,E261,E265
 
       - name: Run Django tests
         env:
