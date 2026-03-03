@@ -24,35 +24,26 @@ load_dotenv()
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-fallback-key-for-dev-only")
-# if not SECRET_KEY:
-#     raise ValueError("DJANGO_SECRET_KEY environment variable is required")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
-
-# HTTPS settings
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# SECURE_SSL_REDIRECT = True
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-
-# HSTS settings
-# SECURE_HSTS_SECONDS = 31536000 # 1 year
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
-
-# Other security settings
-# SECURE_CONTENT_TYPE_NOSNIFF = True
-# SECURE_BROWSER_XSS_FILTER = True
-# X_FRAME_OPTIONS = 'DENY'
-
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://dscc-cw-00016438.uaenorth.cloudapp.azure.com',
-    'https://www.dscc-cw-00016438.uaenorth.cloudapp.azure.com',
+#ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+#ALLOWED_HOSTS = ['https://dscc-cw-00016438.uaenorth.cloudapp.azure.com']
+ALLOWED_HOSTS = [
+    'dscc-cw-00016438.uaenorth.cloudapp.azure.com',
+    '20.203.125.232',
+    'localhost',
+    '127.0.0.1'
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://dscc-cw-00016438.uaenorth.cloudapp.azure.com']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = True
 
 # Application definition
 
@@ -123,10 +114,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',       
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',      
     },
 ]
 
@@ -146,16 +137,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-# STATIC_URL = "/static/"
-# STATICFILES_DIRS = [BASE_DIR / "static"]
-# STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = BASE_DIR / "media"
-# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
