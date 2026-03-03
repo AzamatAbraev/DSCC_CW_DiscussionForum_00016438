@@ -55,7 +55,7 @@ jobs:
           POSTGRES_PASSWORD: postgres
           SECRET_KEY: test-secret-key-for-ci
           DJANGO_DEBUG: "True"
-          DJANGO_SETTINGS_MODULE: discussion_forum_00016438.config.settings
+          DJANGO_SETTINGS_MODULE: config.settings
         run: |
           cd discussion_forum_00016438
           pytest
