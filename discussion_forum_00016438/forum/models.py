@@ -29,6 +29,10 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, related_name="posts", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    upvotes = models.ManyToManyField(User, related_name='upvoted_posts', blank=True)
+
+    def total_upvotes(self):
+        return self.upvotes.count()
 
     class Meta:
         ordering = ['-created_at']

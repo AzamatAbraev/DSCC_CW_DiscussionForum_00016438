@@ -26,6 +26,24 @@
   </article>
 
   <section class="mt-5">
+    <div class="mt-3">
+      <form action="{% url 'upvote_post' post.slug %}" method="POST">
+        {% csrf_token %} {% if user.is_authenticated %} {% if user in
+        post.upvotes.all %}
+        <button type="submit" class="btn btn-primary btn-sm">
+          Upvoted ({{ post.total_upvotes }})
+        </button>
+        {% else %}
+        <button type="submit" class="btn btn-outline-primary btn-sm">
+          Upvote ({{ post.total_upvotes }})
+        </button>
+        {% endif %} {% else %}
+        <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-sm">
+          Login to Upvote ({{ post.total_upvotes }})
+        </a>
+        {% endif %}
+      </form>
+    </div>
     <h4>Comments ({{ post.comments.count }})</h4>
 
     {% if user.is_authenticated %}
