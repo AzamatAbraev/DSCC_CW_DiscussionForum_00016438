@@ -6,7 +6,7 @@
 * **Live Application:** [https://dscc-cw-00016438.uaenorth.cloudapp.azure.com/](https://dscc-cw-00016438.uaenorth.cloudapp.azure.com/)
 * **GitHub Repository:** [https://github.com/AzamatAbraev/DSCC_CW_DiscussionForum_00016438.git](https://github.com/AzamatAbraev/DSCC_CW_DiscussionForum_00016438.git)
 * **Docker Hub:** [https://hub.docker.com/r/biotechchy/dscc-cw-app](https://hub.docker.com/r/biotechchy/dscc-cw-app)
-* **Video Demonstration:** [https://drive.google.com/file/d/1V4yo_cYXc3LED9egIvrgnagJvuF5dhau/view?usp=sharing] (https://drive.google.com/file/d/1V4yo_cYXc3LED9egIvrgnagJvuF5dhau/view?usp=sharing)
+* **Video Demonstration:** [https://drive.google.com/file/d/1V4yo_cYXc3LED9egIvrgnagJvuF5dhau/view?usp=sharing](https://drive.google.com/file/d/1V4yo_cYXc3LED9egIvrgnagJvuF5dhau/view?usp=sharing)
 * **Test Credentials:** Admin: `00016438` | Password: `00016438`
 
 ## Project Description
