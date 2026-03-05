@@ -85,5 +85,3 @@ The deployment is fully automated via GitHub Actions (`.github/workflows/deploy.
   * Connects to the Azure VM via SSH.
   * Pulls the latest image and performs a rolling restart.
   * Automated execution of `migrate` and `collectstatic`.
-
-## Application Screenshots (to be updated)
