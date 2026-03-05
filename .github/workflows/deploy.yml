@@ -103,5 +103,6 @@ jobs:
             sudo docker compose -f docker-compose.prod.yml pull
             sudo docker compose -f docker-compose.prod.yml up -d
             sudo docker compose -f docker-compose.prod.yml exec -T web python discussion_forum_00016438/manage.py migrate
+            sudo docker compose -f docker-compose.prod.yml exec -T web python discussion_forum_00016438/manage.py collectstatic --noinput
             sudo docker image prune -f
             echo 'Deployment completed successfully!'

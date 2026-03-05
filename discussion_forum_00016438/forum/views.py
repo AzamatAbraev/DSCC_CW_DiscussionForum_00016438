@@ -94,7 +94,6 @@ class SignUpView(CreateView):
 
 
 
-
 def UpvoteView(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if post.upvotes.filter(id=request.user.id).exists():

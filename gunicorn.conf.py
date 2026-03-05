@@ -12,7 +12,7 @@ timeout = 30
 graceful_timeout = 30
 # Maximum requests per worker before restart (prevents memory leaks)
 max_requests = 1000
-max_requests_jitter = 50
+max_requests_jitter = 50  
 # Logging
 accesslog = "-" # stdout
 errorlog = "-" # stderr
@@ -22,6 +22,6 @@ limit_request_line = 4094
 limit_request_fields = 100
 limit_request_field_size = 8190
 # Process naming
-proc_name = "django_app"
+proc_name = "dscc_discussion_forum"
 # Preload application for faster worker spawning
 preload_app = True
